@@ -3,7 +3,7 @@ import numpy as np
 
 from skimage.io import imread             # 이미지를 읽어 들인다
 from skimage.transform import resize 
-url = 'https://github.com/kim-geonuk/geonuk/new/main'
+url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/ham'
 
 face_images = []
 
@@ -24,7 +24,7 @@ def plot_images(nRow, nCol, img):
             axis.imshow(img[i*nCol+j])
 
 plot_images(3,5, face_images)
-url = 'https://github.com/dknife/ML/raw/main/data/Proj2/animals/'
+url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/remote'
 
 animal_images = []
 
@@ -56,7 +56,7 @@ model = keras.models.Sequential( [
 ])
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(X, y, epochs = 100)
-url = 'https://github.com/dknife/ML/raw/main/data/Proj2/test_data/'
+url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/test'
 
 test_images = []
 
