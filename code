@@ -1,0 +1,79 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+from skimage.io import imread             # 이미지를 읽어 들인다
+from skimage.transform import resize 
+url = 'https://github.com/kim-geonuk/geonuk/new/main'
+
+face_images = []
+
+for i in range(15):
+    file = url + 'img{0:02d}.jpg'.format(i+1)
+    img = imread(file)
+    img = resize(img, (64,64))
+    face_images.append(img)
+def plot_images(nRow, nCol, img):
+    fig = plt.figure()
+    fig, ax = plt.subplots(nRow, nCol, figsize = (nCol,nRow))
+    for i in range(nRow):
+        for j in range(nCol):
+            if nRow <= 1: axis = ax[j]
+            else:         axis = ax[i, j]
+            axis.get_xaxis().set_visible(False)
+            axis.get_yaxis().set_visible(False)
+            axis.imshow(img[i*nCol+j])
+
+plot_images(3,5, face_images)
+url = 'https://github.com/dknife/ML/raw/main/data/Proj2/animals/'
+
+animal_images = []
+
+for i in range(15):
+    file = url + 'img{0:02d}.jpg'.format(i+1)
+    img = imread(file)
+    img = resize(img, (64,64))
+    animal_images.append(img)
+
+plot_images(3,5, animal_images)
+import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+
+model = keras.models.Sequential( [
+    keras.layers.Conv2D(input_shape = (64, 64, 3), 
+                        kernel_size = (3,3), filters = 32),
+    keras.layers.MaxPooling2D((2, 2), strides=2),
+    keras.layers.Conv2D(kernel_size = (3,3), filters = 32),
+    keras.layers.MaxPooling2D((2, 2), strides=2),
+    keras.layers.Conv2D(kernel_size = (3,3), filters = 32),
+    keras.layers.MaxPooling2D((2, 2), strides=2),
+    keras.layers.Conv2D(kernel_size = (3,3), filters = 32),
+    keras.layers.Flatten(),
+    keras.layers.Dense(128, activation = 'relu'),
+    keras.layers.Dense(16, activation = 'relu'),
+    keras.layers.Dense(2, activation = 'softmax'),
+])
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(X, y, epochs = 100)
+url = 'https://github.com/dknife/ML/raw/main/data/Proj2/test_data/'
+
+test_images = []
+
+for i in range(10):
+    file = url + 'img{0:02d}.jpg'.format(i+1)
+    img = imread(file)
+    img = resize(img, (64,64))
+    test_images.append(img)
+
+test_images = np.array(test_images)
+plot_images(2, 5, test_images)
+fig = plt.figure()
+fig, ax = plt.subplots(2,5, figsize = (10,4))
+for i in range(2):
+    for j in range(5):
+        ax[i, j].get_xaxis().set_visible(False)
+        ax[i, j].get_yaxis().set_visible(False)
+        if test_result[i*5+j][0] > 0.5:
+            ax[i, j].imshow(test_images[i*5+j],interpolation='nearest')
+      
