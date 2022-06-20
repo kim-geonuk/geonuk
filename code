@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from skimage.io import imread             # 이미지를 읽어 들인다
+from skimage.io import imread  
 from skimage.transform import resize 
 url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/ham'
 
