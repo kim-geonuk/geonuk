@@ -8,7 +8,7 @@ url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/ham/'
 face_images = []
 
 for i in range(15):
-    file = url + 'img{0:02d}.jpg'.format(i+1)
+    file = url + 'ham{0:02d}.jpg'.format(i+1)
     img = imread(file)
     img = resize(img, (64,64))
     face_images.append(img)
@@ -29,7 +29,7 @@ url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/remote/'
 animal_images = []
 
 for i in range(15):
-    file = url + 'img{0:02d}.jpg'.format(i+1)
+    file = url + '리모컨{0:02d}.jpg'.format(i+1)
     img = imread(file)
     img = resize(img, (64,64))
     animal_images.append(img)
@@ -174,7 +174,7 @@ url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/test/'
 test_images = []
 
 for i in range(10):
-    file = url + 'img{0:02d}.jpg'.format(i+1)
+    file = url + 'test{0:02d}.jpg'.format(i+1)
     img = imread(file)
     img = resize(img, (64,64))
     test_images.append(img)
