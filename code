@@ -3,7 +3,7 @@ import numpy as np
 
 from skimage.io import imread  
 from skimage.transform import resize 
-url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/ham'
+url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/ham/'
 
 face_images = []
 
@@ -24,7 +24,7 @@ def plot_images(nRow, nCol, img):
             axis.imshow(img[i*nCol+j])
 
 plot_images(3,5, face_images)
-url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/remote'
+url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/remote/'
 
 animal_images = []
 
@@ -169,7 +169,7 @@ class ResNet(nn.Module):
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(X, y, epochs = 100)
-url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/test'
+url = 'https://github.com/kim-geonuk/geonuk/tree/main/data/proj2/photo/test/'
 
 test_images = []
 
